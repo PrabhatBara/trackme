@@ -1,0 +1,20 @@
+# This is a Table of contents workflow generator to help you get a detailed TOC for you readme with Actions
+
+name: TOC Generator
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  generateTOC:
+    name: TOC Generator
+    runs-on: ubuntu-latest
+    steps:
+      - uses: technote-space/toc-generator@v4
+        with:
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
